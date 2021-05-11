@@ -5,7 +5,20 @@
     <x-slot name="header">
         <x-admin.content-header>
             <x-slot name="title">
-                <h1> Notebook </h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1> Notebook </h1>
+                    </div>
+
+                    <div class="col-md-6">
+                        <select name="with_category" class="form-control" id="with_category" required style="width: 100% !important;">
+                            <option value="" selected disabled> Select a Category </option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{ Request::query('with_category') == $category->id ? 'selected' : '' }}> {{ $category->name }} </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </x-slot>
             <a onclick="notebook_form('{{ route('admin.notebooks.store') }}')" data-toggle="modal" data-target="#notebookForm" href="#" class="btn btn-primary"> <i class="fas fa-plus mr-1"></i> New Notebook </a>
         </x-admin.content-header>
@@ -162,6 +175,11 @@
             $('.select2_category').select2({
                 dropdownParent: $('#notebookForm'),
                 width: 'resolve'
+            })
+
+            $('#with_category').change(function() {
+                let with_category = $(this).val()
+                window.location.href = `{{ url('admin/notebooks') }}?with_category=${with_category}`
             })
         </script>
     @endpush

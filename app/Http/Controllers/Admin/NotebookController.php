@@ -14,10 +14,15 @@ class NotebookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->data['categories'] = Category::latest('id')->get();
-        $this->data['notebooks'] = Notebook::latest('id')->get();
+        if($request->query('with_category')) {
+            $this->data['notebooks'] = Notebook::where('category_id', $request->query('with_category'))->latest('id')->get();
+        } else {
+            $this->data['notebooks'] = Notebook::latest('id')->get();
+        }
+        
         return view('admin.notebook_index', $this->data);
     }
 

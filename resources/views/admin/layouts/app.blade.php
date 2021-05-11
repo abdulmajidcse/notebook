@@ -163,53 +163,9 @@
             }).buttons().container().appendTo('#data_table_wrapper .col-md-6:eq(0)');
         });
 
-        // add input field
-        function add_input(name_field_value) {
-            let new_input = `<div class="input-group mb-2">
-                            <input type="text" name="${name_field_value}" class="form-control" required>
-                            <div onclick="delete_input(this)" class="input-group-append">
-                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        </div>`
-            $("#new_input").append(new_input)
-        }
-
-        // delete input
-        function delete_input(this_element) {
-            $(this_element).parent().remove()
-        }
-
         // select2 global
         $('.select2_global').select2({
             width: 'resolve'
-        });
-
-        // get zilas by division_id
-        $("#division_id").change(function() {
-            let division_id = $(this).val()
-            $("#zila_id").empty()
-
-            $.get(`{{ url('/') }}/json_response/division/${division_id}/zilas`)
-            .done(function( data ) {
-                $("#zila_id").append(`<option value="" disabled selected> জেলা নির্বাচন করুন </option>`)
-                $.each(data.zilas, function(key, zila) {
-                    $("#zila_id").append(`<option value="${zila.id}"> ${zila.name} </option>`);
-                })
-            })
-        })
-
-        // get pourashavas by zila_id
-        $("#zila_id").change(function() {
-            let zila_id = $(this).val()
-            $("#pourashava_id").empty()
-
-            $.get(`{{ url('/') }}/json_response/zila/${zila_id}/pourashavas`)
-            .done(function( data ) {
-                $("#pourashava_id").append(`<option value="" disabled selected> পৌরসভা নির্বাচন করুন </option>`)
-                $.each(data.pourashavas, function(key, pourashava) {
-                    $("#pourashava_id").append(`<option value="${pourashava.id}"> ${pourashava.name} </option>`);
-                })
-            })
         })
     </script>
 
