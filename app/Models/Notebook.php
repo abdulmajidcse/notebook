@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class NoteBook extends Model
+class Notebook extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -16,4 +16,10 @@ class NoteBook extends Model
      * @var array
      */
     protected $guarded = [];
+
+    // get cateogry
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

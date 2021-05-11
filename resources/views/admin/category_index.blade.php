@@ -64,7 +64,7 @@
                     <form id="categoryFormTag" method="POST">
                         @csrf
 
-                        <div id="new_input" class="form-group">
+                        <div class="form-group">
                             <x-label for="category_name" :require="true"> Name </x-label>
                             <div class="input-group mb-2">
                                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="category_name" value="{{ old('name') }}" required>

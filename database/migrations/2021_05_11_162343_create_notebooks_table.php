@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNoteBooksTable extends Migration
+class CreateNotebooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNoteBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('note_books', function (Blueprint $table) {
+        Schema::create('notebooks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete();
             $table->string('name', 50);
@@ -31,6 +31,6 @@ class CreateNoteBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('note_books');
+        Schema::dropIfExists('notebooks');
     }
 }

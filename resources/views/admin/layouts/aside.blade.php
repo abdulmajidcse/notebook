@@ -30,6 +30,13 @@
                     </x-nav-link>
                 </li>
 
+                <li class="nav-item">
+                    <x-nav-link :href="route('admin.notebooks.index')" :active="request()->routeIs('admin.notebooks.*')">
+                        <i class="nav-icon fas fa-book-open"></i>
+                        <p> Notebook </p>
+                    </x-nav-link>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

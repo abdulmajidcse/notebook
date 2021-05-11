@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\NotebookController;
 
 /**
  * Routes before authenticate
@@ -48,5 +49,6 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
     Route::resource('categories', CategoryController::class)->except(['create', 'edit', 'show', 'destroy']);
+    Route::resource('notebooks', NotebookController::class)->except(['create', 'edit', 'show', 'destroy']);
 
 });
