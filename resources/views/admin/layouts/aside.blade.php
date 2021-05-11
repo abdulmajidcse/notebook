@@ -15,12 +15,18 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                    with font-awesome or any other icon font library -->
+                
                 <li class="nav-item">
                     <x-nav-link :href="route('admin.home')" :active="request()->routeIs('admin.home')">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p> Dashboard </p>
+                    </x-nav-link>
+                </li>
+
+                <li class="nav-item">
+                    <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')">
+                        <i class="nav-icon far fa-chart-bar"></i>
+                        <p> Category </p>
                     </x-nav-link>
                 </li>
 

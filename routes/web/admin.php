@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Auth\ProfileController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /**
  * Routes before authenticate
@@ -45,5 +46,7 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
 
     // admin dashboard route
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    Route::resource('categories', CategoryController::class)->except(['create', 'edit', 'show', 'destroy']);
 
 });
