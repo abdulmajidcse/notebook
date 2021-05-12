@@ -113,7 +113,7 @@
                         <div class="form-group">
                             <x-label for="userid" :require="true"> User ID </x-label>
                             <div class="input-group mb-2">
-                                <input type="number" name="userid" class="form-control @error('userid') is-invalid @enderror" id="userid" value="{{ old('userid') }}" required>
+                                <input type="text" name="userid" class="form-control @error('userid') is-invalid @enderror" id="userid" value="{{ old('userid') }}" required>
                                 @error('userid')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -125,7 +125,7 @@
                         <div class="form-group">
                             <x-label for="pin" :require="true"> Pin </x-label>
                             <div class="input-group mb-2">
-                                <input type="number" name="pin" class="form-control @error('pin') is-invalid @enderror" id="pin" value="{{ old('pin') }}" required>
+                                <input type="text" name="pin" class="form-control @error('pin') is-invalid @enderror" id="pin" value="{{ old('pin') }}" required>
                                 @error('pin')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

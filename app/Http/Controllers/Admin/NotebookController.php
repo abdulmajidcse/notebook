@@ -51,9 +51,9 @@ class NotebookController extends Controller
                                         $fail('The category is invalid.');
                                     }
                                 }],
-            'name'        => 'required|string|max:50',
-            'userid'      => 'required|integer',
-            'pin'         => 'required|integer',
+            'name'        => 'required|string',
+            'userid'      => 'required|string',
+            'pin'         => 'required|string',
         ]);
 
         Notebook::create([
@@ -106,9 +106,9 @@ class NotebookController extends Controller
                                         $fail('The category is invalid.');
                                     }
                                 }],
-            'name'        => 'required|string|max:50',
-            'userid'      => 'required|integer',
-            'pin'         => 'required|integer',
+            'name'        => 'required|string',
+            'userid'      => 'required|string',
+            'pin'         => 'required|string',
         ]);
 
         $notebook->update([

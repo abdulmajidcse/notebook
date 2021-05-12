@@ -16,9 +16,9 @@ class CreateNotebooksTable extends Migration
         Schema::create('notebooks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnDelete();
-            $table->string('name', 50);
-            $table->unsignedBigInteger('userid');
-            $table->unsignedBigInteger('pin');
+            $table->string('name');
+            $table->string('userid');
+            $table->string('pin');
             $table->softDeletes();
             $table->timestamps();
         });
